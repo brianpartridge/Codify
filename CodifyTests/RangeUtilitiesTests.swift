@@ -16,15 +16,28 @@ class RangeUtilitiesTests: XCTestCase {
     // MARK: - Fixtures
     
     let range = NSMakeRange(0, 10)
+    let empty = NSMakeRange(3, 0)
     let prefix = NSMakeRange(0, 2)
     let suffix = NSMakeRange(8, 2)
     let middle = NSMakeRange(4, 2)
     
     // MARK: - Tests
     
+    func test_equality() {
+        XCTAssertEqual(range, range)
+        XCTAssertNotEqual(prefix, range)
+    }
+    
     func test_rangesBySubtractingRange_equal() {
         let results = rangesBySubtractingRange(range, fromRange: range)
         XCTAssertTrue(results.isEmpty)
+    }
+    
+    func test_rangesBySubtractingRange_empty() {
+        let results = rangesBySubtractingRange(empty, fromRange: range)
+        XCTAssertEqual(results.count, 1)
+        XCTAssertEqual(results[0].location, 0)
+        XCTAssertEqual(results[0].length, 10)
     }
     
     func test_rangesBySubtractingRange_prefix() {
