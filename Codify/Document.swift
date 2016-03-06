@@ -8,11 +8,12 @@
 
 import Cocoa
 
-class Document: NSDocument {
+class Document: NSDocument, NSTextViewDelegate {
 
     // MARK: - Outlets
     
-    @IBOutlet var textView: NSTextView!
+    @IBOutlet var editorTextView: NSTextView!
+    @IBOutlet var desaturatedTextView: NSTextView!
     
     // MARK: - Private Properties
     
@@ -24,8 +25,12 @@ class Document: NSDocument {
     override func windowControllerDidLoadNib(aController: NSWindowController) {
         super.windowControllerDidLoadNib(aController)
 
-        if let _ = textView, pendingDocumentData = pendingDocumentData {
-            updateTextViewWithData(pendingDocumentData)
+        guard let editorTextView = editorTextView, _ = desaturatedTextView else { fatalError("TextViews not loaded.") }
+        
+        editorTextView.delegate = self
+            
+        if let pendingDocumentData = pendingDocumentData {
+            updateEditorWithData(pendingDocumentData)
         }
     }
 
@@ -38,24 +43,37 @@ class Document: NSDocument {
     }
 
     override func dataOfType(typeName: String) throws -> NSData {
-        let attributedString = textView?.textStorage
+        let attributedString = editorTextView?.textStorage
         let range = NSMakeRange(0, attributedString?.length ?? 0)
         return attributedString?.RTFDFromRange(range, documentAttributes: [:]) ?? NSData()
     }
 
     override func readFromData(data: NSData, ofType typeName: String) throws {
-        if let _ = textView {
-            updateTextViewWithData(data)
+        if let _ = editorTextView {
+            updateEditorWithData(data)
         } else {
             pendingDocumentData = data
         }
     }
     
+    // MARK: - NSTextViewDelegate
+    
+    func textDidChange(notification: NSNotification) {
+        guard let editorContent = editorTextView.textStorage else { return }
+        updateDesaturatedTextPreview(editorContent)
+    }
+    
     // MARK: - Private Methods
     
-    private func updateTextViewWithData(data: NSData) {
+    private func updateEditorWithData(data: NSData) {
         let attributedString = NSAttributedString(RTFD: data, documentAttributes: nil) ?? NSAttributedString(string: "")
-        textView?.textStorage?.setAttributedString(attributedString)
+        editorTextView?.textStorage?.setAttributedString(attributedString)
+        updateDesaturatedTextPreview(attributedString)
+    }
+    
+    private func updateDesaturatedTextPreview(editorContent: NSAttributedString) {
+        let desaturatedContent = editorContent
+        desaturatedTextView?.textStorage?.setAttributedString(desaturatedContent)
     }
 }
 
