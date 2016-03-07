@@ -13,8 +13,6 @@
 		BD96225B1C8C88740075E7F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD96225A1C8C88740075E7F4 /* Assets.xcassets */; };
 		BD96225E1C8C88750075E7F4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD96225C1C8C88750075E7F4 /* MainMenu.xib */; };
 		BD9622691C8C88750075E7F4 /* CodifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9622681C8C88750075E7F4 /* CodifyTests.swift */; };
-		BD9622741C8CD56B0075E7F4 /* RangeUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9622731C8CD56B0075E7F4 /* RangeUtilities.swift */; };
-		BD9622761C8CD5960075E7F4 /* RangeUtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9622751C8CD5960075E7F4 /* RangeUtilitiesTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +36,6 @@
 		BD9622641C8C88750075E7F4 /* CodifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9622681C8C88750075E7F4 /* CodifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodifyTests.swift; sourceTree = "<group>"; };
 		BD96226A1C8C88750075E7F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BD9622731C8CD56B0075E7F4 /* RangeUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeUtilities.swift; sourceTree = "<group>"; };
-		BD9622751C8CD5960075E7F4 /* RangeUtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeUtilitiesTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +83,6 @@
 				BD96225A1C8C88740075E7F4 /* Assets.xcassets */,
 				BD96225C1C8C88750075E7F4 /* MainMenu.xib */,
 				BD96225F1C8C88750075E7F4 /* Info.plist */,
-				BD9622731C8CD56B0075E7F4 /* RangeUtilities.swift */,
 			);
 			path = Codify;
 			sourceTree = "<group>";
@@ -97,7 +92,6 @@
 			children = (
 				BD9622681C8C88750075E7F4 /* CodifyTests.swift */,
 				BD96226A1C8C88750075E7F4 /* Info.plist */,
-				BD9622751C8CD5960075E7F4 /* RangeUtilitiesTests.swift */,
 			);
 			path = CodifyTests;
 			sourceTree = "<group>";
@@ -203,7 +197,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD9622741C8CD56B0075E7F4 /* RangeUtilities.swift in Sources */,
 				BD9622561C8C88740075E7F4 /* Document.swift in Sources */,
 				BD9622541C8C88740075E7F4 /* AppDelegate.swift in Sources */,
 			);
@@ -213,7 +206,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD9622761C8CD5960075E7F4 /* RangeUtilitiesTests.swift in Sources */,
 				BD9622691C8C88750075E7F4 /* CodifyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
