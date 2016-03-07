@@ -7,8 +7,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="Document" customModule="Codify" customModuleProvider="target">
             <connections>
-                <outlet property="desaturatedTextView" destination="tZn-1i-euZ" id="6X7-Yt-0EL"/>
                 <outlet property="editorTextView" destination="qBR-Ll-Qwr" id="jO5-3T-Ub6"/>
+                <outlet property="previewTextView" destination="tZn-1i-euZ" id="Qzo-h7-Jac"/>
                 <outlet property="window" destination="xOd-HO-29H" id="JIz-fz-R2o"/>
             </connections>
         </customObject>
